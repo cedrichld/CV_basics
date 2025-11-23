@@ -2,61 +2,6 @@
 
 .gifs and visualizations take a few seconds to load...
 
-## About
-This repository contains projects completed for **CIS 5800: Machine Perception (Fall 2025)** at the **University of Pennsylvania**, taught by **Prof. Kostas Daniilidis**.  
-Course website: [https://sites.google.com/seas.upenn.edu/cis5800f2025/](https://sites.google.com/seas.upenn.edu/cis5800f2025/)
-
-The course builds a complete foundation in **geometric and learning-based Computer Vision**, moving from projective geometry to 3D reconstruction, optical flow, and radiance-field representations.
-
-### Topics Covered
-The class develops both theoretical understanding and hands-on implementations of modern perception algorithms. Core areas include:
-
-> *I also studied additional readings from **Hartley & Zisserman’s** “Multiple View Geometry in Computer Vision”, the **MIT Foundations of Computer Vision Textbook**, and other classic references to deepen my understanding of multi-view geometry and 3D reconstruction.*
-
-
-**Camera Models & Calibration**
-- Pinhole camera model, projection equations, and intrinsic/extrinsic parameters  
-- Vanishing points, cross-ratios, and geometric transformations  
-- Camera calibration from planar patterns and SVD-based pose recovery  
-
-**Projective Geometry**
-- Homographies between planes and their estimation via DLT  
-- Collineations and two-view relationships  
-- Coordinate transformations in homogeneous space  
-
-**Pose Estimation & 3D Geometry**
-- **PnP and P3P** for pose recovery from 2D–3D correspondences  
-- **Procrustes alignment** for rigid-body transformation recovery  
-- Triangulation and depth estimation from multiple calibrated views  
-
-**Epipolar Geometry & Essential Matrix Estimation**
-- Derivation of the **fundamental and essential matrices**  
-- 8-point and normalized algorithms to estimate `E`   
-- **RANSAC** for robust outlier rejection  
-- Epipolar line visualization and reprojection validation  
-
-**Structure from Motion (SfM) & Multi-View Reconstruction**
-- Motion recovery from two or more views  
-- Triangulation and bundle adjustment for dense 3D reconstruction  
-- Implementation of a minimal SfM pipeline in Python  
-- Integration of feature matching, RANSAC filtering, and pose disambiguation  
-
-**Optical Flow & Visual Odometry**
-- Derivation and implementation of the **Lucas–Kanade** and **Horn–Schunck** methods  
-- Understanding of **Ego-motion from Flow** and **Visual SLAM** concepts  
-- Multi-frame motion estimation for dynamic scenes  
-
-**Radiance Fields & Light-Field Rendering**
-- Introduction to **Neural Radiance Fields (NeRF)** and radiance integration  
-- Light-field rendering and plenoptic function concepts  
-- Fourier and spherical harmonics in radiance representation  
-
-**3D Perception & Modern CV Applications**
-- **Stereopsis** and depth from disparity  
-- Multi-view consistency and metric reconstruction  
-- Brief exploration of **PyTorch3D** for differentiable 3D vision  
-- Exposure to modern pipelines like **COLMAP** and **Bundle Adjustment** frameworks  
-
 ---
 
 ## HW 4 – Bundle Adjustment, COLMAP, and Transformer-Based Feature Matching
@@ -108,7 +53,7 @@ I implemented common-feature extraction across all views using **LoFTR**, a dete
 
 **Concepts Learned:**  
 - Bundle Adjustment parameterization (axis–angle rotation, translation, and structure)  
-- Differentiable reprojection and loss computation in PyTorch  
+- Differentiable reprojection and loss computation in **PyTorch**
 - Gradient-based BA optimization and convergence visualization  
 - Classical vs. Transformer-based feature matching (SIFT vs. LoFTR)  
 - Practical multi-view reconstruction and comparison with COLMAP  
@@ -191,6 +136,66 @@ Projective geometry, homography estimation, inverse warping, planar image mappin
   <img src="img/basic_projection_hw1.gif" alt="Basic homography projection" height="260">
 </p>
 <p align="center"><em>Logo projection maintaining geometric consistency with the goal’s motion.</em></p>
+
+---
+
+## About
+This repository contains projects completed for **CIS 5800: Machine Perception (Fall 2025)** at the **University of Pennsylvania**, taught by **Prof. Kostas Daniilidis**.  
+Course website: [https://sites.google.com/seas.upenn.edu/cis5800f2025/](https://sites.google.com/seas.upenn.edu/cis5800f2025/)
+
+The course builds a complete foundation in **geometric and learning-based Computer Vision**, moving from projective geometry to 3D reconstruction, optical flow, and radiance-field representations.
+
+### Topics Covered
+The class develops both theoretical understanding and hands-on implementations of modern perception algorithms. Core areas include:
+
+> *I also studied additional readings from **Hartley & Zisserman’s** “Multiple View Geometry in Computer Vision”, the **MIT Foundations of Computer Vision Textbook**, and other classic references to deepen my understanding of multi-view geometry and 3D reconstruction recommended by Prof. Kostas Daniilidis.*
+
+
+**Camera Models & Calibration**
+- Pinhole camera model, projection equations, and intrinsic/extrinsic parameters  
+- Vanishing points, cross-ratios, and geometric transformations  
+- Camera calibration from planar patterns and SVD-based pose recovery  
+
+**Projective Geometry**
+- Homographies between planes and their estimation via DLT  
+- Collineations and two-view relationships  
+- Coordinate transformations in homogeneous space  
+
+**Pose Estimation & 3D Geometry**
+- **PnP and P3P** for pose recovery from 2D–3D correspondences  
+- **Procrustes alignment** for rigid-body transformation recovery  
+- Triangulation and depth estimation from multiple calibrated views  
+
+**Epipolar Geometry & Essential Matrix Estimation**
+- Derivation of the **fundamental and essential matrices**  
+- 8-point and normalized algorithms to estimate `E`   
+- **RANSAC** for robust outlier rejection  
+- Epipolar line visualization and reprojection validation  
+
+**Structure from Motion (SfM) & Multi-View Reconstruction**
+- Motion recovery from multiple calibrated views  
+- Triangulation and dense multi-view reconstruction  
+- **Bundle Adjustment (BA)** formulation and implementation  
+- Differentiable reprojection, axis–angle parameterization, and gradient-based optimization in PyTorch  
+- Integration of feature matching, RANSAC filtering, pose disambiguation, and BA refinement  
+- Comparison with large-scale SfM frameworks such as **COLMAP**
+
+**Optical Flow & Visual Odometry**
+- Derivation and implementation of the **Lucas–Kanade** and **Horn–Schunck** methods  
+- Understanding of **Ego-motion from Flow** and **Visual SLAM** concepts  
+- Multi-frame motion estimation for dynamic scenes  
+
+**Radiance Fields & Light-Field Rendering**
+- Introduction to **Neural Radiance Fields (NeRF)** and radiance integration  
+- Light-field rendering and plenoptic function concepts  
+- Fourier and spherical harmonics in radiance representation  
+
+**3D Perception & Modern CV Applications**
+- Stereopsis and depth from disparity  
+- Multi-view consistency and metric reconstruction  
+- Differentiable 3D vision using PyTorch  
+- Exposure to pipelines such as **COLMAP**, feature-detection methods (SIFT), and detector-free transformers (**LoFTR**)  
+- Understanding the strengths and limitations of classical features vs. transformer-based correspondence models
 
 ---
 
