@@ -2,6 +2,12 @@
 
 .gifs and visualizations take a few seconds to load...
 
+## About
+This repository contains projects completed for **CIS 5800: Machine Perception (Fall 2025)** at the **University of Pennsylvania**, taught by **Prof. Kostas Daniilidis**.  
+Course website: [https://sites.google.com/seas.upenn.edu/cis5800f2025/](https://sites.google.com/seas.upenn.edu/cis5800f2025/)
+
+The course builds a complete foundation in **geometric and learning-based Computer Vision**, moving from projective geometry to 3D reconstruction, optical flow, and radiance-field representations.
+
 ---
 
 ## HW 4 – Bundle Adjustment, COLMAP, and Transformer-Based Feature Matching
@@ -139,13 +145,7 @@ Projective geometry, homography estimation, inverse warping, planar image mappin
 
 ---
 
-## About
-This repository contains projects completed for **CIS 5800: Machine Perception (Fall 2025)** at the **University of Pennsylvania**, taught by **Prof. Kostas Daniilidis**.  
-Course website: [https://sites.google.com/seas.upenn.edu/cis5800f2025/](https://sites.google.com/seas.upenn.edu/cis5800f2025/)
-
-The course builds a complete foundation in **geometric and learning-based Computer Vision**, moving from projective geometry to 3D reconstruction, optical flow, and radiance-field representations.
-
-### Topics Covered
+## Topics Covered
 The class develops both theoretical understanding and hands-on implementations of modern perception algorithms. Core areas include:
 
 > *I also studied additional readings from **Hartley & Zisserman’s** “Multiple View Geometry in Computer Vision”, the **MIT Foundations of Computer Vision Textbook**, and other classic references to deepen my understanding of multi-view geometry and 3D reconstruction recommended by Prof. Kostas Daniilidis.*
