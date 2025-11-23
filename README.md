@@ -59,6 +59,62 @@ The class develops both theoretical understanding and hands-on implementations o
 
 ---
 
+## HW 4 – Bundle Adjustment, COLMAP, and Transformer-Based Feature Matching
+
+**Goal:** Reconstruct the Penn Commons scene using both classical (SIFT) and modern (LoFTR) feature pipelines, followed by **Bundle Adjustment (BA)** implemented from scratch in **PyTorch**.
+
+### Part 1 — COLMAP Reconstruction
+Using the provided multi-view dataset, I ran COLMAP’s feature extraction, matching, and sparse reconstruction pipeline. The recovered camera poses and point cloud provide a reference solution for the custom BA implementation.
+
+<p align="center">
+  <img src="img/hw4/colmap_pcl.png" width="70%">
+</p>
+<p align="center"><em>Sparse reconstruction produced by COLMAP.</em></p>
+
+### Part 2 — Bundle Adjustment with SIFT Features
+1. Initialize camera poses (axis–angle + translation) and 3D structure.
+2. Reproject all points across all frames.
+3. Optimize all parameters with gradient descent in PyTorch.
+4. Visualize convergence and compare with COLMAP.
+
+The SIFT-based BA converged at **8.83e-5** around **14k iterations**.
+
+<p align="center">
+  <img src="img/hw4/ba_sift.png" width="100%">
+</p>
+
+<p align="center">
+  <img src="img/hw4/loss_ba_sift.png" width="66%">
+  <img src="img/hw4/ba_sift_pcl.png" width="32%">
+</p>
+<p align="center"><em>LEFT: Loss curve (left: linear scale, right: log scale), RIGHT: Recovered 3D point cloud using SIFT features.</em></p>
+
+### Part 3 — LoFTR: Detector-Free Transformer Feature Matching
+I implemented common-feature extraction across all views using **LoFTR**, a detector-free transformer model. The extracted features were then fed into the same PyTorch BA pipeline.
+
+- LoFTR BA reaches the SIFT loss level in **~10k iterations**  
+- Final convergence at **2.6e-7**, about **3.4×10²** better than SIFT  
+- LoFTR’s point cloud is more abstract and less interpretable, but numerically superior
+
+<p align="center">
+  <img src="img/hw4/ba_loftr.png" width="100%">
+</p>
+
+<p align="center">
+  <img src="img/hw4/loss_ba_loftr.png" width="63.2%">
+  <img src="img/hw4/ba_loftr_pcl.png" width="34.8%">
+</p>
+<p align="center"><em>LEFT: Loss curve (left: linear scale, right: log scale), RIGHT: Recovered 3D point cloud using LoFTR features.</em></p>
+
+**Concepts Learned:**  
+- Bundle Adjustment parameterization (axis–angle rotation, translation, and structure)  
+- Differentiable reprojection and loss computation in PyTorch  
+- Gradient-based BA optimization and convergence visualization  
+- Classical vs. Transformer-based feature matching (SIFT vs. LoFTR)  
+- Practical multi-view reconstruction and comparison with COLMAP  
+
+---
+
 ## HW 3 - 3D Reconstruction from Two Views
 **Goal:** Recover the relative pose between two images and reconstruct the 3D scene using feature matching and multi-view geometry.
 
