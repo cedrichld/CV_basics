@@ -10,6 +10,35 @@ The course builds a complete foundation in **geometric and learning-based Comput
 
 ---
 
+## HW 5 – Optical Flow & Epipole Estimation
+
+**Goal:** Estimate pixel-level motion between frames using **Lucas–Kanade Optical Flow**, then recover the **epipole (FOE: Focus of Expansion)** assuming pure camera translation.
+
+### Part 1 — Lucas–Kanade Optical Flow
+Using spatiotemporal gradients $ (I_x, I_y, I_t) $, I implemented a patch-based Lucas–Kanade solver to compute dense flow $ (u, v) $. Each $5\times5$ neighborhood forms an overdetermined system solved with least squares, and the smallest singular value provides a **confidence measure**.
+
+<p align="center">
+  <img src="img/hw5/flow_50.png" width="50%">
+</p>
+<p align="center"><em>Optical flow visualization. Red vectors show per-pixel motion direction and magnitude.</em></p>
+
+### Part 2 — Epipole (Focus of Expansion)
+Using reliable flow vectors $(s_{\min} > \text{threshold})$, I ran **RANSAC** to estimate the epipole $e$, enforcing
+
+$$ e^\top (x_p \times u) = 0 $$
+
+Flow rays should intersect at the epipole, which represents the camera’s motion direction.
+
+
+<p align="center">
+  <img src="img/hw5/epipole_10.png" width="50%">
+</p>
+<p align="center"><em>Estimated epipole location with inlier flow vectors converging toward a common motion focus.</em></p>
+
+**Concepts Learned:** Spatiotemporal gradients, Lucas–Kanade optical flow, confidence via SVD singular values, RANSAC geometry fitting, ego-motion interpretation from flow.
+
+---
+
 ## HW 4 – Bundle Adjustment, COLMAP, and Transformer-Based Feature Matching
 
 **Goal:** Reconstruct the Penn Commons scene using both classical (SIFT) and modern (LoFTR) feature pipelines, followed by **Bundle Adjustment (BA)** implemented from scratch in **PyTorch**.
